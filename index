@@ -16,4 +16,10 @@ args = parser.parse_args()
 
 # Iterate over the [name]=[path] pairs
 for name in args.collections:
-    subprocess.run("java -cp anserini.jar io.anserini.index.IndexCollection -collection TrecCollection -generator JsoupGenerator -threads {0} -index {1} -input /input/collections/{1} -storePositions -storeDocvectors -storeRawDocs".format(cores, name).split())
+    subprocess.run("""
+        java -cp anserini.jar io.anserini.index.IndexCollection
+            -collection TrecCollection -generator JsoupGenerator
+            -threads {0} -index {1}
+            -input /input/collections/{1}
+            -storePositions -storeDocvectors -storeRawDocs
+    """.format(cores, name).split())
