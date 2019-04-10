@@ -11,7 +11,7 @@ parser.add_argument("--topic", required=True, type=str, help="the name of the to
 parser.add_argument("--topic_format", required=True, type=str, help="the format of the topic file")
 parser.add_argument("--top_k", required=True, type=str, help="the format of the topic file")
 
-args = parser.parse_args()
+args = parser.parse_known_args()
 
 subprocess.run("""
     java -cp anserini.jar io.anserini.search.SearchCollection
