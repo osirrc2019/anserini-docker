@@ -20,6 +20,6 @@ for collection in args.json["collections"]:
         java -cp anserini.jar io.anserini.index.IndexCollection
             -collection TrecCollection -generator JsoupGenerator
             -threads {0} -index {1}
-            -input /input/collections/{1}
+            -input {2}
             -storePositions -storeDocvectors -storeRawDocs
-    """.format(cores, collection["name"]).split())
+    """.format(cores, collection["name"], collection["path"]).split())
